@@ -1,0 +1,20 @@
+madam -> True
+computer -> False
+tacocat -> True
+tac ohcat -> False
+racecar -> True
+r°cecar -> False
+racekar -> False
+Aerate pet area -> True
+aeRaTE pEt areA -> True
+àęrate pÈt ÁŖea -> False
+ĦĦĦĦĦĦĦĦĦĦĦ -> True
+°∙°∙°∙° -> True
+Ħ∙°∙aT
+Ħ∙°∙Ħ -> False
+r̷̨̧̧̮̳̱͇͉͎̬͉͉͓̂a̵̞̥̾c̸̢̧̧̧̢̛͙̯̥̠̖̝͉̀̒̈́̌̊̏̈́͋̌̎̃̄ͅe̷̜͓̺̜̻̳̦͚̦̣̱͐c̶̣̯̳͙͚͉͖̹̺̟̲̰͕͍̉̒̉̎̈́̒â̸̧̨̪̟̗̥̭͎͇̥̹r̷͍̔̓̀̓ -> False
+t̸̡̡̢̥̭͇͓̪̲̙̱̫̲̞̲̓a̸̙͇͒̂͋̇̋̋̒̈̚c̶̨̨̧̡̢̪͓͔̟̟͑͒͑̈́͋̎ơ̸̧̘͔̩̥͔̣̮̬̠̩̪̻͕̒̂̒̅͂͐̉͜͝͠c̵̢̧̹̅̊̇́̈́͋͝͝a̷̛̫̮̺̻̫͓͙͔̫̬̲̖̥̘̽̊̈́̕ţ̵̨͔̳͇͙̪͙̮̯̱̺̅͊̉̽́̌̕ -> False
+False -> False
+True -> False
+FalseeslaF -> True
+TrueurT -> True
