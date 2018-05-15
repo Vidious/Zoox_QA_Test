@@ -1,0 +1,40 @@
+As the safety of 1.2 million humans are at risk of an autonomous fleet – The number of teleoperators would have to be at a minimum of a 1:1 ratio of teleoperator to active autonomous fleet vehicle. Ideally, each vehicle could have 2 teleoperators, or at least one operator with dual backup connections to the vehicle for fast reactions to emergencies.
+
+However, not every vehicle would likely be active at the same time. Teleoperators could switch between multiple vehicles if some are down/disabled for any reason.
+
+The vehicles will also need to stop, or shut down for repairs at some points.
+
+Teleoperators will need to be able to detect alerts for emergency vehicles in case the autonomous vehicle fails to detect it for any reason, such as signal interference.
+
+Teleoperators should also look for vehicles that are supposed to be active, but appear not to be moving. Access to local traffic cameras, or a drone attached to the vehicle could assist in identifying issues like this.
+
+Factors to consider:
+
+•	Number of active autonomous vehicles
+•	Detecting when a sensor is not functioning on one of the vehicles to disable it
+•	Sending a tow truck to retrieve vehicles stranded due to mechanical/outside causes that disable it’s function
+•	Teleoperations connection speed
+•	Teleoperations connection back up, and reliability
+•	Traffic camera/drone camera access
+•	Thieves who try to strip the vehicle for parts
+•	Hours each vehicle is active
+•	Scheduled maintenance per vehicle
+•	Unscheduled maintenance per vehicle
+•	Required re-fueling stops per vehicle
+•	Tier/tread wear
+•	Ability to respond/assist with active passenger needs/requests
+•	Users with disabilities/special needs
+•	Users who speak other languages
+•	Weather activity in the city
+•	Traffic density
+•	Other active systems active in the area
+o	Trolleys
+o	Competitor autonomous vehicles
+o	Wifi signals
+o	Bluetooth signals
+o	Mobile devices
+o	Signal traffic from other electronics
+•	Connection to local emergency services
+o	Ambulance
+o	Fire
+o	Police
