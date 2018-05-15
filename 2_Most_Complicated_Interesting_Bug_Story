@@ -1,0 +1,34 @@
+Some of the most interesting bugs I’ve run into involve client/server prediction and correction. In one example from the arena shooter game, LawBreakers:
+
+I had an issue that would only occur once every 3 weeks. The game is run with 10 clients on a single game server in multiplayer. Each character has separate abilities that can damage, heal, shield, augment other team mate and enemy players in different ways.
+
+We had a bug where an interaction between 3 different character abilities from 3 players would cause a fourth client on the server to crash separately, while the 3 characters that caused the crash would continue to play as if nothing was wrong.
+
+Player 1: Battle Medic- Has an ability to create a shield that blocks hitscan and projectile weapons. Creates a visible bubble shaped dome. Players do not have collision with the dome, and can walk through it in and out.
+
+Player 2: Vanguard – Has an ability to fly into the air, and dive bomb a location by creating a projectile field around the player, and diving into the ground to create an explosion, plus spawn an zero gravity volume around the impact point.
+
+Player 3: Assassin – Has an ability to directly shoot a grappling hook knife at both ally and enemy players. The knife is a projectile, and can attach to player pawns, then pull the assassin closer to the target player.
+
+Player 4: Enemy Battle Medic to Player 1: Crashes for a NaN impact type missing from server side game code during special interaction between Player 1, 2, 3.
+
+•	Player 1: Battle Medic creates the dome that blocks projectiles.
+•	Player 2: Vanguard flys into the air, and charges up for the projectile dive around their player pawn.
+•	Player 3: Assassin directly knife grapples into Player 2 vanguard before the projectile dive
+•	Player 4: Battle medic enemy of player 1, but ally to player 2 and 3 has special HUD elements to display damage/healing required to their team mates.
+
+1. When the vanguard dives into the enemy battle medic bubble – they are a player pawn that can pass through the barrier, surrounded by a projectile that should not be able to pass through the barrier.
+2. The assassin grapples directly to the player pawn, and tricks the enemy barrier into only seeing the player, and ignoring the projectile that deals impact damage around the vanguard.
+3. The vanguard dives into the battle medic bubble, passing through with a projectile that should have been blocked.
+4. The projectile passing through the barrier causes a process on the ally Player 4 battle medic client that triggers damage being dealt to the vanguard, when they actually did not take damage from any source. Another side effect of the grapple altering the state of the projectile around the vanguard (it deals damage to the player that fired it).
+5. The server sends a call to Player 4 ally Battle Medic that the Vanguard has taken damage.
+6. The Ally vanguard does not send any information about taking damage to the server, and the server tries to correct when they view the vanguard player at full health.
+7. Due to missing information, and the impact being processed as NaN – Player 4, the ally battle medic crashes from the game.
+
+This description may sound like an extreme edge case. But our FaultServ detected this crash among thousands of players during our open beta. It was hard to identify the steps to reproduce internally, because the players who cause the crash do not experience a crash themselves.
+
+The steps to reproduce were discovered after recording Nvidia Shadowplay recordings on all 10 client machines across several internal playtests, and narrowing the cause by watching all 10 videos manually, and trying to reproduce with a QA team of 4 testers.
+
+Once the steps to reproduce were found, we got more information from the client and server logs that pointed to the discrepancy for our gameplay programmers to fix.
+
+ 
